@@ -10,5 +10,16 @@ public class Ventana2 extends JFrame {
 		setBounds(200, 200, 498, 328);
 		setTitle("Promedio");
 		getContentPane().setLayout(null);
+		
+		
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 * hola hola ohdkkmnsjdsjdnhfvfdnd
+		 * 
+		 * 
+		 * */
 	}
 }
