@@ -47,7 +47,7 @@ public class Principal_ventana extends JFrame {
 				ventana1.setVisible(true);	
 			}
 		});
-		
+
 		//Abrir Ventana Ejercicio 2
 		Ventana2 ventana2 = new Ventana2();
 		btnEjercicio2.addActionListener(new ActionListener() {
@@ -55,7 +55,7 @@ public class Principal_ventana extends JFrame {
 				ventana2.setVisible(true);
 			}
 		});
-		
+
 		//Abrir Ventana Ejercicio 3
 		Ventana3 ventana3 = new Ventana3();
 		btnEjercicio3.addActionListener(new ActionListener() {
@@ -63,6 +63,7 @@ public class Principal_ventana extends JFrame {
 				ventana3.setVisible(true);
 			}
 		});
+		
 	}
 	
 	public void cambiarVisibilidad(boolean estado) {
