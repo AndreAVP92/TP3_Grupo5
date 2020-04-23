@@ -56,6 +56,30 @@ public class Ventana2 extends JFrame {
 		panel_2.add(lblCond);
 		
 		JButton btnCalcular = new JButton("CALCULAR");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				/*
+				 * textFieldN3;
+	private JTextField textFieldN2;
+	private JTextField textFieldN1;
+				 * 
+				 * 
+				 * 
+				 * || (textFieldN3. < 6)
+				 * 
+				 * */
+				String item;
+				item = CB.getSelectedItem().toString();
+				
+				if (item.equalsIgnoreCase("Desaprobado" )){
+					
+					textFieldCond.setText("LIBRE");}
+					
+				
+			}
+		});
 		btnCalcular.setBounds(357, 80, 97, 38);
 		getContentPane().add(btnCalcular);
 		
