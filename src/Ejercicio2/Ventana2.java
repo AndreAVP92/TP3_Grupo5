@@ -7,12 +7,11 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-//import java.awt.GridBagLayout;
 import javax.swing.JLabel;
-//import java.awt.GridBagConstraints;
-//import java.awt.Insets;
 import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Ventana2 extends JFrame {
 
@@ -22,6 +21,8 @@ public class Ventana2 extends JFrame {
 	private JTextField textFieldN1;
 	private JTextField textFieldPro;
 	private JTextField textFieldCond;
+	private JComboBox CB;
+	
 
 	public Ventana2() {
 		setBounds(200, 200, 537, 417);
@@ -59,10 +60,33 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(btnCalcular);
 		
 		JButton btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+			}
+		});
 		btnSalir.setBounds(357, 159, 97, 38);
 		getContentPane().add(btnSalir);
 		
 		JButton btnNuevo = new JButton("NUEVO");
+		btnNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				/// Limpiar cajas de texto
+				
+				textFieldN1.setText(null);
+				textFieldN2.setText(null);
+				textFieldN3.setText(null);
+				textFieldPro.setText(null);
+				textFieldCond.setText(null);
+				
+				// Limpiar combobox
+			
+				CB.setSelectedIndex(-1);
+			}
+		});
 		btnNuevo.setBounds(357, 120, 97, 38);
 		getContentPane().add(btnNuevo);
 		
@@ -92,9 +116,13 @@ public class Ventana2 extends JFrame {
 		lblTPS.setBounds(30, 125, 56, 16);
 		panel_1.add(lblTPS);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(98, 122, 117, 22);
-		panel_1.add(comboBox);
+		CB = new JComboBox();
+		CB.setBounds(98, 122, 117, 22);
+		CB.addItem("Aprobado");
+		CB.addItem("Desaprobado");
+		panel_1.add(CB);
+	
+		
 		
 		textFieldN3 = new JTextField();
 		textFieldN3.setBounds(98, 93, 117, 22);
