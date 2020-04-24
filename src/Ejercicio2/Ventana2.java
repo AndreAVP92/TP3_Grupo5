@@ -8,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -58,27 +59,37 @@ public class Ventana2 extends JFrame {
 		JButton btnCalcular = new JButton("CALCULAR");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				/*
-				 * textFieldN3;
-	private JTextField textFieldN2;
-	private JTextField textFieldN1;
-				 * 
-				 * 
-				 * 
-				 * || (textFieldN3. < 6)
-				 * 
-				 * */
+
 				String item;
 				item = CB.getSelectedItem().toString();
 				
-				if (item.equalsIgnoreCase("Desaprobado" )){
-					
-					textFieldCond.setText("LIBRE");}
-					
+				int N1 = Integer.parseInt(textFieldN1.getText());
+				int N2 = Integer.parseInt(textFieldN2.getText());
+				int N3 = Integer.parseInt(textFieldN3.getText());
 				
-			}
+				int promedio = (N1+N2+N3)/3;
+				
+				textFieldPro.setText(String.valueOf(promedio));
+				
+				
+				//if (textFieldN1.getText().isEmpty()  && textFieldN2.getText().isEmpty()  && textFieldN3.getText().isEmpty())
+				//{
+					//JOptionPane.showMessageDialog(null, "Debe ingresar datos");
+				//}
+				
+				if(N1>=8 && N2>=8 && N3>=8 && item.equalsIgnoreCase("Aprobado" ) ) {
+					textFieldCond.setText("PROMOCIONADO");
+				}
+				else if(N1>5 && N2>5 && N3>5 && item.equalsIgnoreCase("Aprobado" )) {
+					textFieldCond.setText("REGULAR");
+				}
+				else
+				{
+					textFieldCond.setText("LIBRE");
+				}
+	
+				
+			} 
 		});
 		btnCalcular.setBounds(357, 80, 97, 38);
 		getContentPane().add(btnCalcular);
@@ -87,7 +98,19 @@ public class Ventana2 extends JFrame {
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				/// Limpiar cajas de texto
+				
+				textFieldN1.setText(null);
+				textFieldN2.setText(null);
+				textFieldN3.setText(null);
+				textFieldPro.setText(null);
+				textFieldCond.setText(null);
+				
+				// Limpiar combobox
+			
+				CB.setSelectedIndex(-1);
 				dispose();
+				
 			}
 		});
 		btnSalir.setBounds(357, 159, 97, 38);
@@ -146,7 +169,6 @@ public class Ventana2 extends JFrame {
 		CB.addItem("Desaprobado");
 		panel_1.add(CB);
 	
-		
 		
 		textFieldN3 = new JTextField();
 		textFieldN3.setBounds(98, 93, 117, 22);
